@@ -3,10 +3,14 @@
     padding: 0;
 }
 
+.nav-link{
+    color: white;
+}
+
 a {
+    color: #fff;
     text-decoration: none;
     transition: 0.3s;
-    color: white;
 }
 
 a:hover {
@@ -44,6 +48,7 @@ main {
 .nav-list li {
     letter-spacing: 3px;
     padding: 15px;
+    
 }
 
 .mobile-menu {

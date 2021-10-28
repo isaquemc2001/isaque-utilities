@@ -4,9 +4,9 @@
 }
 
 a {
+    color: #ffffff;
     text-decoration: none;
     transition: 0.3s;
-    color: white;
 }
 
 a:hover {
