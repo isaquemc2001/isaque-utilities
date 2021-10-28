@@ -16,6 +16,12 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <!--FANCYBOX-->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+
+
     <title>Navbar</title>
 </head>
 
@@ -38,6 +44,202 @@
     </header>
     <main></main>
     <script src="mobile_navbar.js"></script>
+
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-9">
+                <h1 class="titulos-pag">Chamados</h1>
+            </div>
+            <div class="btn-menu col-3">
+                <div class="btn-add btn btn-success mt-3 ml-3">Novo Chamado</div>
+                <div class="btn-att btn btn-light mt-3 ml-3 mr-4">Atualizar</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col justify-content-center d-flex mt-5 table-responsive">
+                <table class="table table-hover" style="width: 90%; color: black; background-color: white;">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Prioridade</th>
+                            <th scope="col">Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <div class="btn-add btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#visualizar-chamado">Visualizar</div>
+                                <div class="btn-add btn btn-warning ml-2" data-bs-toggle="modal"
+                                    data-bs-target="#editar-chamado">Editar</div>
+                                <div class="btn-add btn btn-danger ml-2">Excluir</div>
+                            </td>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>
+                                <div class="btn-add btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#visualizar-chamado">Visualizar</div>
+                                <div class="btn-add btn btn-warning ml-2" data-bs-toggle="modal"
+                                    data-bs-target="#editar-chamado">Editar</div>
+                                <div class="btn-add btn btn-danger ml-2">Excluir</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>@twitter</td>
+                            <td>
+                                <div class="btn-add btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#visualizar-chamado">Visualizar</div>
+                                <div class="btn-add btn btn-warning ml-2" data-bs-toggle="modal"
+                                    data-bs-target="#editar-chamado">Editar</div>
+                                <div class="btn-add btn btn-danger ml-2">Excluir</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal VISUALIZAÇÃO -->
+    <div class="modal fade" id="visualizar-chamado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Vizualizar Chamado - "Titulo"</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Título</h5>
+                            <input type="text" class="form-control mb-4" value="Cadastro de Professor no AVA" disabled>
+
+                            <h5>Nome</h5>
+                            <input type="text" class="form-control mb-4" value="ISAQUE MATOS CONCEICAO" disabled>
+
+                            <h5>Status</h5>
+                            <select id="status-disabled" class="form-select mb-4" disabled>
+                                <option>Em Aberto</option>
+                            </select>
+
+                            <h5>Prioridade</h5>
+                            <select id="prioridade-disabled" class="form-select mb-4" disabled>
+                                <option>Normal</option>
+                            </select>
+
+                            <h5>Visualizar Anexo</h5>
+                            <a data-fancybox="gallery1" href="bg.jpg"><img src="bg.jpg" style="width: 20%;"></a>
+                        </div>
+                        <div class="col">
+                            <h5>Categoria</h5>
+                            <select id="categoria-disabled" class="form-select mb-4" disabled>
+                                <option>CADASTRO</option>
+                            </select>
+
+                            <h5>Setor</h5>
+                            <select id="categoria-disabled" class="form-select mb-4" disabled>
+                                <option>ADM FORMACAO CONTINUADA</option>
+                            </select>
+
+                            <h5>Descrição</h5>
+                            <textarea class="form-control" id="textarea-disabled" rows="10"
+                                disabled>What is Lorem Ipsum?
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal EDITAR -->
+    <div class="modal fade" id="editar-chamado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Vizualizar Chamado - "Titulo"</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Título</h5>
+                            <input type="text" class="form-control mb-4" value="Cadastro de Professor no AVA">
+
+                            <h5>Nome</h5>
+                            <input type="text" class="form-control mb-4" value="ISAQUE MATOS CONCEICAO">
+
+                            <h5>Status</h5>
+                            <select id="status-disabled" class="form-select mb-4">
+                                <option>Em Aberto</option>
+                            </select>
+
+                            <h5>Prioridade</h5>
+                            <select id="prioridade-disabled" class="form-select mb-4">
+                                <option>Normal</option>
+                            </select>
+
+                            <h5>Visualizar Anexo</h5>
+                            <a data-fancybox="gallery2" href="bg.jpg"><img src="bg.jpg" style="width: 20%;"></a>
+                        </div>
+                        <div class="col">
+                            <h5>Categoria</h5>
+                            <select id="categoria-disabled" class="form-select mb-4">
+                                <option>CADASTRO</option>
+                            </select>
+
+                            <h5>Setor</h5>
+                            <select id="categoria-disabled" class="form-select mb-4">
+                                <option>ADM FORMACAO CONTINUADA</option>
+                            </select>
+
+                            <h5>Descrição</h5>
+                            <textarea class="form-control" id="textarea-disabled" rows="10" cols="3">What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
