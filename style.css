@@ -21,6 +21,15 @@ nav {
     left: 0;
 }
 
+.sidebar-responsivo {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
 .titulos-pag {
     color: black;
     margin-top: 40px;
@@ -31,27 +40,45 @@ nav {
     color: #F3F1F5;
 }
 
-.dropdown :hover {
+.btn-table:hover{
     color: white;
     opacity: 0.8;
 }
 
-.card-left {
-    margin-left: 130px;
-    margin-top: 40px;
-    height: 100%;
+.btn-nav:hover {
+    color: white;
+    opacity: 0.8;
 }
 
-.card-right {
-    margin-top: 40px;
-    margin-right: 130px;
-    height: 100%;
+.btn-acesso {
+    width: 30px;
+    margin-top: 5px;
+    margin-right: 40px;
+}
+
+.btn-perfil {
+    width: 40px;
+    margin-right: 50px;
 }
 
 /*style responsivo do side bar*/
+
 @media (max-width: 999px) {
-    .side-bar{
+    .side-bar {
         display: none;
+    }
+    .btn-acesso {
+        width: 25px;
+        margin-top: 5px;
+        margin-right: 40px;
+    }
+    .btn-perfil {
+        width: 35px;
+        margin-right: 20px;
+    }
+    .btn-add {
+        margin-top: 40px;
+        color: #F3F1F5;
     }
 }
 
@@ -160,7 +187,7 @@ table {
 .table {
     border-bottom: #999999 solid 1px;
     width: 100%;
-    margin-bottom: 20px;
+    margin-top: 50px;
 }
 
 .table th, .table td {
