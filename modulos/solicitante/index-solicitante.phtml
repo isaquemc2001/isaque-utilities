@@ -8,7 +8,7 @@
     <title>Chamado</title>
 
     <!--Style CSS-->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/prototipo2/css/style.css" />
 
     <!--BOOTSTRAP-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -27,6 +27,8 @@
     <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
+    <!--favicon Pag-->
+    <link rel="shortcut icon" href="/prototipo2/images/chamado.png" type="image/x-icon" />
 
     <!--Data table-->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
@@ -145,21 +147,14 @@
                         </a>
                         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Página Inicial" data-bs-toggle="tooltip" data-bs-placement="right">
+                                <a href="/prototipo2/modulos/solicitante/index-solicitante.phtml" class="nav-link active py-3 border-bottom" aria-current="page" title="Página Inicial" data-bs-toggle="tooltip" data-bs-placement="right">
                                     <svg class="bi" width="24" height="24" role="img" aria-label="Home">
                                         <use xlink:href="#home" />
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link py-3 border-bottom" title="Seus Chamados" data-bs-toggle="tooltip" data-bs-placement="right">
-                                    <svg class="bi" width="24" height="24" role="img" aria-label="Chamados">
-                                        <use xlink:href="#table" />
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link py-3 border-bottom" title="Novo Chamado" data-bs-toggle="tooltip" data-bs-placement="right">
+                                <a class="nav-link py-3 border-bottom" title="Novo Chamado" data-bs-toggle="modal" data-bs-target="#cadastrar-chamado" data-bs-placement="right">
                                     <svg class="bi" width="24" height="24" role="img" aria-label="Products">
                                         <use xlink:href="#new" />
                                     </svg>
@@ -177,20 +172,6 @@
             </div>
 
             <ul class="nav d-flex">
-                <li>
-                    <div class="dropdown dropstart">
-                        <a class="d-flex" href="#" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="btn-nav btn-acesso" src="/prototipo2/images/acessor.png">
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <li><button class="dropdown-item" type="button"><img src="/prototipo2/images/ava.png" style="width: 50px;"> Ava Graduação</button></li>
-                            <li><button class="dropdown-item" type="button"><img src="/prototipo2/images/avaeventos.gif" style="width: 50px;"> Ava Eventos</button></li>
-                            <li><button class="dropdown-item" type="button"><img src="/prototipo2/images/acervodeobras.png" style="width: 50px;"> Acervo de Obras</button></li>
-                            <li><button class="dropdown-item" type="button"><img src="/prototipo2/images/logosiest.png" style="width: 50px;"> SIEST</button></li>
-                            <li><button class="dropdown-item" type="button"><img src="/prototipo2/images/pontoeletronico.png" style="width: 50px;"> Ponto Eletrônico</button></li>
-                        </ul>
-                    </div>
-                </li>
                 <li>
                     <div class="dropdown dropstart">
                         <a href="#" class="d-flex" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -225,21 +206,14 @@
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item">
-                <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Página Inicial" data-bs-toggle="tooltip" data-bs-placement="right">
+                <a href="/prototipo2/modulos/solicitante/index-solicitante.phtml" class="nav-link active py-3 border-bottom" aria-current="page" title="Página Inicial" data-bs-toggle="tooltip" data-bs-placement="right">
                     <svg class="bi" width="24" height="24" role="img" aria-label="Home">
                         <use xlink:href="#home" />
                     </svg>
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link py-3 border-bottom" title="Seus Chamados" data-bs-toggle="tooltip" data-bs-placement="right">
-                    <svg class="bi" width="24" height="24" role="img" aria-label="Chamados">
-                        <use xlink:href="#table" />
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link py-3 border-bottom" title="Novo chamado" data-bs-toggle="tooltip" data-bs-placement="right">
+                <a class="nav-link btn py-3 border-bottom" title="Novo Chamado" data-bs-toggle="modal" data-bs-target="#cadastrar-chamado" data-bs-placement="right">
                     <svg class="bi" width="24" height="24" role="img" aria-label="Products">
                         <use xlink:href="#new" />
                     </svg>
@@ -249,6 +223,49 @@
     </div>
     <!--FIM SIDEBAR-->
 
+
+    <!-- Modal CADASTRAR CHAMADO -->
+    <form action="/prototipo2/modulos/controllers/cadastrar-chamado.php" method="POST">
+        <div class="modal fade" id="cadastrar-chamado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Cadastrar Chamado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Título</h5>
+                                <input type="text" class="form-control mb-4" name="Titulo">
+
+                                <h5>Tipo de Erro</h5>
+                                <select id="" class="form-select mb-4" name="tipoErro">
+                                    <option value="1">Dificuldade de acesso</option><!--1-->
+                                    <option value="2">Cadastro de dados</option><!--2-->
+                                </select>
+
+                                <h5>Anexo</h5>
+                                <input class="form-control" id="formFileSm" type="number" name="Anexo">
+
+                            </div>
+                            <div class="col">
+                                <h5>Descrição</h5>
+                                <textarea class="form-control" id="textarea-disabled" rows="14" name="Descricao"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--FIM MODAL CADASTRAR -->
+
+
     <!--INICIO GRID DOS CHAMADOS-->
     <div class="container">
         <div class="row">
@@ -256,7 +273,7 @@
                 <h1 class="titulos-pag">Chamados</h1>
             </div>
             <div class="col-6 col-xxl-2 d-flex justify-content-end" style="height: 50%;">
-                <div class="btn-add btn btn-success">Novo Chamado</div>
+                <div class="btn-add btn btn-success" title="Novo Chamado" data-bs-toggle="modal" data-bs-target="#cadastrar-chamado">Novo Chamado</div>
             </div>
         </div>
 
@@ -272,7 +289,6 @@
                             <th>Título</th>
                             <th>Data</th>
                             <th>Categoria</th>
-                            <th>Tipo de Erro</th>
                             <th>Responsável</th>
                             <th>Ações</th>
                         </tr>
@@ -280,55 +296,47 @@
 
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Cruzeiro</td>
-                            <td>28</td>
-                            <td>18</td>
-                            <td>5</td>
-                            <td>5</td>
+                            <td>Isaque Matos</td>
+                            <td>Não consigo acessar o AVA</td>
+                            <td>02/11/2021</td>
+                            <td>Dificuldade de Acesso</td>
+                            <td>João Victor</td>
                             <td>
                                 <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2">Alterar Status</div>
+                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Editar</div>
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>Cruzeiro</td>
-                            <td>28</td>
-                            <td>18</td>
-                            <td>5</td>
-                            <td>5</td>
+                            <td>Camilla Menezes</td>
+                            <td>Não consigo acessar o AVA</td>
+                            <td>02/11/2021</td>
+                            <td>Dificuldade de Acesso</td>
+                            <td>João Victor</td>
                             <td>
                                 <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2">Alterar Status</div>
+                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Editar</div>
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>são paulo</td>
-                            <td>28</td>
-                            <td>18</td>
-                            <td>5</td>
-                            <td>5</td>
+                            <td>Isaque Matos</td>
+                            <td>Não consigo acessar o AVA</td>
+                            <td>02/11/2021</td>
+                            <td>Dificuldade de Acesso</td>
+                            <td>João Victor</td>
                             <td>
                                 <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2">Alterar Status</div>
+                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Editar</div>
                             </td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>são paulo</td>
-                            <td>28</td>
-                            <td>18</td>
-                            <td>5</td>
-                            <td>5</td>
+                            <td>Ingrid Lúcia</td>
+                            <td>Não consigo acessar o AVA</td>
+                            <td>02/11/2021</td>
+                            <td>Dificuldade de Acesso</td>
+                            <td>João Victor</td>
                             <td>
                                 <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2">Alterar Status</div>
+                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#editar-chamado">Editar </div>
                             </td>
                         </tr>
                     </tbody>
@@ -352,39 +360,69 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12 col-sm-6">
                             <h5>Título</h5>
                             <input type="text" class="form-control mb-4" value="Cadastro de Professor no AVA" disabled>
 
-                            <h5>Nome</h5>
-                            <input type="text" class="form-control mb-4" value="ISAQUE MATOS CONCEICAO" disabled>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <h5>Nome do Técnico</h5>
+                                    <input type="text" class="form-control mb-4" value="ISAQUE MATOS CONCEICAO" disabled>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <h5>Nome do Solicitante</h5>
+                                    <input type="text" class="form-control mb-4" value="JOSE MARIO ALELUIA" disabled>
+                                </div>
+                            </div>
 
-                            <h5>Status</h5>
-                            <select id="status-disabled" class="form-select mb-4" disabled>
-                                <option>Em Aberto</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-6 col-sm-6">
+                                    <h5>Status</h5>
+                                    <select id="status-disabled" class="form-select mb-4" disabled>
+                                        <option>Em Aberto</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 col-sm-6">
+                                    <h5>Categoria</h5>
+                                    <select id="categoria-disabled" class="form-select mb-4" disabled>
+                                        <option>GD AVA</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                            <h5>Prioridade</h5>
-                            <select id="prioridade-disabled" class="form-select mb-4" disabled>
-                                <option>Normal</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-4 col-sm-4">
+                                    <h5>Visualizar Anexo</h5>
+                                    <a data-fancybox="gallery1" href="/prototipo2/images/bg.jpg"><img src="/prototipo2/images/bg.jpg" style="width: 50%;"></a>
+                                </div>
+                                <div class="col-4 col-sm-4">
+                                    <h5>Data de Abertura</h5>
+                                    <input type="text" class="form-control mb-4" value="10/03/2001" disabled>
+                                </div>
+                                <div class="col-4 col-sm-4">
+                                    <h5>Data de Alteração</h5>
+                                    <input type="text" class="form-control mb-4" value="10/03/2001" disabled>
+                                </div>
+                            </div>
 
-                            <h5>Visualizar Anexo</h5>
-                            <a data-fancybox="gallery1" href="/prototipo2/images/bg.jpg"><img src="/prototipo2/images/bg.jpg" style="width: 20%;"></a>
                         </div>
-                        <div class="col">
-                            <h5>Categoria</h5>
-                            <select id="categoria-disabled" class="form-select mb-4" disabled>
-                                <option>CADASTRO</option>
-                            </select>
-
-                            <h5>Setor</h5>
-                            <select id="categoria-disabled" class="form-select mb-4" disabled>
-                                <option>ADM FORMACAO CONTINUADA</option>
-                            </select>
-
+                        <div class="col-12 col-sm-6">
                             <h5>Descrição</h5>
-                            <textarea class="form-control" id="textarea-disabled" rows="10" disabled>What is Lorem Ipsum?
+                            <textarea class="form-control mb-4" id="textarea-disabled" rows="7" disabled>What is Lorem Ipsum?
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</textarea>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <h5>Atualização</h5>
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" class="btn-table btn badge bg-primary ml-4" data-bs-dismiss="modal">Histórico de Atualização</button>
+                                </div>
+                            </div>
+                            <textarea class="form-control" id="textarea-disabled" rows="7" disabled>What is Lorem Ipsum?
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 
                                 Why do we use it?
@@ -393,60 +431,39 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
     <!--FIM MODAL VIZUALIZAÇÃO-->
 
-    <!-- Modal EDITAR -->
+    <!-- Modal EDITAR CHAMADO -->
     <div class="modal fade" id="editar-chamado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Vizualizar Chamado - "Titulo"</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Editar Chamado</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12 col-sm-6">
                             <h5>Título</h5>
                             <input type="text" class="form-control mb-4" value="Cadastro de Professor no AVA">
 
-                            <h5>Nome</h5>
-                            <input type="text" class="form-control mb-4" value="ISAQUE MATOS CONCEICAO">
-
-                            <h5>Status</h5>
-                            <select id="status-disabled" class="form-select mb-4">
-                                <option>Em Aberto</option>
-                            </select>
-
-                            <h5>Prioridade</h5>
-                            <select id="prioridade-disabled" class="form-select mb-4">
-                                <option>Normal</option>
-                            </select>
-
-                            <h5>Visualizar Anexo</h5>
-                            <a data-fancybox="gallery2" href="/prototipo2/images/bg.jpg"><img src="/prototipo2/images/bg.jpg" style="width: 20%;"></a>
-                        </div>
-                        <div class="col">
-                            <h5>Categoria</h5>
-                            <select id="categoria-disabled" class="form-select mb-4">
+                            <h5>Tipo de Erro</h5>
+                            <select id="categoria" class="form-select mb-4">
                                 <option>CADASTRO</option>
                             </select>
 
-                            <h5>Setor</h5>
-                            <select id="categoria-disabled" class="form-select mb-4">
-                                <option>ADM FORMACAO CONTINUADA</option>
-                            </select>
+                            <h5>Anexo</h5>
+                            <input class="form-control mb-4" id="formFileSm" type="file">
 
+                        </div>
+                        <div class="col-12 col-sm-6">
                             <h5>Descrição</h5>
-                            <textarea class="form-control" id="textarea-disabled" rows="10" cols="3">What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
-                                    Why do we use it?
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                            </textarea>
+                            <textarea class="form-control" id="textarea-disabled" rows="14"></textarea>
                         </div>
                     </div>
                 </div>
@@ -457,7 +474,8 @@
             </div>
         </div>
     </div>
-    <!--FIM MODAL EDITAR -->
+    <!--FIM EDITAR CADASTRAR -->
+
 </body>
 
 </html>

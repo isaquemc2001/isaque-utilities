@@ -52,7 +52,7 @@ nav {
 
 .btn-acesso {
     width: 30px;
-    margin-top: 5px;
+    margin-top: 6px;
     margin-right: 40px;
 }
 
@@ -111,6 +111,11 @@ html {
 
 .dropdown-toggle {
     outline: 0;
+}
+
+.nav-link:hover{
+    color: black;
+    opacity: 0.8;
 }
 
 .nav-flush .nav-link {
