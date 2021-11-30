@@ -32,16 +32,20 @@
     <link rel="shortcut icon" href="/prototipo2/images/chamado.png" type="image/x-icon" />
 
     <!--Data table-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-
-    <script>
+    <script type="text/javascript" language="javascript">
         $(document).ready(function() {
-            $('#table-chamado').DataTable({
+            $('#listar-chamados').DataTable({
+
+                "processing": true,
+				"serverSide": true,
+				"ajax": {
+					"url": "consultar_chamados.php",
+					"type": "POST"
+				},
                 "language": {
                     "lengthMenu": "Chamados por pagina _MENU_",
                     "zeroRecords": "Valor não encontrado",
@@ -60,12 +64,14 @@
                     "search": "Pesquisar:",
                     "zeroRecords": "Nenhum registro correspondente encontrado",
                     "paginate": {
-                        "first": "Primaira",
+                        "first": "Primeira",
                         "last": "Última",
                         "next": "Próxima",
                         "previous": "Anterior"
                     }
                 }
+
+
             });
         });
     </script>
@@ -224,6 +230,7 @@
     </div>
     <!--FIM SIDEBAR-->
 
+
     <!--INICIO GRID DOS CHAMADOS-->
     <div class="container">
         <div class="row">
@@ -236,86 +243,17 @@
             <div class="col">
 
                 <!-- RESPONSIVE TABLE -->
-                <table class="table table-responsive table-hover" id="table-chamado">
+                <table class="table table-responsive table-hover" id="listar-chamados">
 
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Título</th>
-                            <th>Data</th>
-                            <th>Categoria</th>
-                            <th>Responsável</th>
+                            <th>Titulo</th>
+                            <th>Descrição</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <tr>
-                            <td>Isaque Matos</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>João Victor</td>
-                            <td>
-                                <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2" data-bs-toggle="modal" data-bs-target="#alterar-status">Alterar Status</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Camilla Menezes</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>João Victor</td>
-                            <td>
-                                <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2" data-bs-toggle="modal" data-bs-target="#alterar-status">Alterar Status</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Isaque Matos</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>João Victor</td>
-                            <td>
-                                <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2" data-bs-toggle="modal" data-bs-target="#alterar-status">Alterar Status</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ingrid Lúcia</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>João Victor</td>
-                            <td>
-                                <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2" data-bs-toggle="modal" data-bs-target="#alterar-status">Alterar Status</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ingrid Lúcia</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>Isaque Matos Conceição</td>
-                            <td>
-                                <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
-                                <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
-                                <div class="btn-table btn badge bg-success ml-2" data-bs-toggle="modal" data-bs-target="#alterar-status">Alterar Status</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ingrid Lúcia</td>
-                            <td>Não consigo acessar o AVA</td>
-                            <td>02/11/2021</td>
-                            <td>Dificuldade de Acesso</td>
-                            <td>Isaque Matos Conceição</td>
                             <td>
                                 <div class="btn-table btn badge bg-primary" data-bs-toggle="modal" data-bs-target="#visualizar-chamado">Visualizar</div>
                                 <div class="btn-table btn badge bg-warning ml-2" data-bs-toggle="modal" data-bs-target="#atribuir-chamado">Atribuir</div>
@@ -493,5 +431,6 @@
     </div>
     <!--FIM MODAL ALTERAR STATUS-->
 </body>
+
 
 </html>
